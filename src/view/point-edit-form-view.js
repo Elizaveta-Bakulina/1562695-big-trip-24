@@ -162,7 +162,7 @@ export default class PointEditFormView extends AbstractStatefulView{
 
   _restoreHandlers() {
     this.element.addEventListener('submit', this.#formSubmitHandler);
-    this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#rollUpButtonClickHandler );
+    this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#rollUpButtonClickHandler);
     this.element.querySelector('.event__type-group').addEventListener('change', this.#typeListChangeHandler);
     this.element.querySelector('.event__input--destination').addEventListener('change', this.#destinationChangeHandler);
     this.element.querySelector('.event__input--price').addEventListener('input', this.#priceInputHandler);
@@ -212,7 +212,7 @@ export default class PointEditFormView extends AbstractStatefulView{
     this.#handleFormSubmit(PointEditFormView.parseStateToRoutePoint(this._state));
   };
 
-  #rollUpButtonClickHandler  = (evt) => {
+  #rollUpButtonClickHandler = (evt) => {
     evt.preventDefault();
     this.#handleEditRollUp(PointEditFormView.parseStateToRoutePoint(this.#initialRoutePoint));
   };

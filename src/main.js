@@ -1,7 +1,5 @@
-
-import TripInfoView from './view/trip-info-view.js';
 import NewRoutePointButton from './view/new-button-view.js';
-import { RenderPosition, render } from './framework/render.js';
+import { render } from './framework/render.js';
 import RoutePointListPresenter from './presenter/route-point-list-presenter.js';
 import FilterPresenter from './presenter/filter-presenter.js';
 import RoutePointsModel from './model/route-point-model.js';
@@ -20,11 +18,12 @@ const routePointsModel = new RoutePointsModel({
 });
 const filterModel = new FilterModel();
 
-const RoutePointList = new RoutePointListPresenter({routePointsListContainer: siteSectionElement, routePointsModel, filterModel, onNewRoutePointDestroy: handleNewRoutePointFormClose,});
-const filterPresenter = new FilterPresenter({filterContainer: siteFilterElement, filterModel, routePointsModel});
 const newRoutePointButtonComponent = new NewRoutePointButton({
   onClick: handleNewRoutePointButtonClick
 });
+const RoutePointList = new RoutePointListPresenter({tripMainContainer: siteMainElement, routePointsListContainer: siteSectionElement, routePointsModel, filterModel, newRoutePointButtonComponent, onNewRoutePointDestroy: handleNewRoutePointFormClose,});
+const filterPresenter = new FilterPresenter({filterContainer: siteFilterElement, filterModel, routePointsModel});
+
 function handleNewRoutePointFormClose() {
   newRoutePointButtonComponent.element.disabled = false;
 }
@@ -33,8 +32,6 @@ function handleNewRoutePointButtonClick() {
   RoutePointList.createPoint();
   newRoutePointButtonComponent.element.disabled = true;
 }
-
-render(new TripInfoView(), siteMainElement, RenderPosition.AFTERBEGIN);
 
 filterPresenter.init();
 

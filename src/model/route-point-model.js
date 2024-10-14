@@ -7,6 +7,7 @@ export default class RoutePointsModel extends Observable {
   #offers = [];
   #destinations = [];
   #routePointsApiService = null;
+  #isLoadingError = false;
   #routePointsAdapterService = new AdapterService();
 
   constructor({routePointsApiService}) {
@@ -26,6 +27,10 @@ export default class RoutePointsModel extends Observable {
     return this.#destinations;
   }
 
+  get error() {
+    return this.#isLoadingError;
+  }
+
   async init() {
     try {
       const routePoints = await this.#routePointsApiService.routePoints;
@@ -36,6 +41,7 @@ export default class RoutePointsModel extends Observable {
       this.#routePoints = [];
       this.#offers = [];
       this.#destinations = [];
+      this.#isLoadingError = true;
     }
     this._notify(UpdateType.INIT);
   }

@@ -8,13 +8,15 @@ export default class NewRoutePointPresenter {
   #routePoint = BlankPoint;
   #handleRoutePointChange = null;
   #handleDestroy = null;
+  #handleReset = null;
   #editRoutePointComponent = null;
 
-  constructor({routePointListComponent, routePointsModel, onRoutePointChange, onDestroy}) {
+  constructor({routePointListComponent, routePointsModel, onRoutePointChange, onDestroy, onReset}) {
     this.#routePointListComponent = routePointListComponent;
     this.#routePointsModel = routePointsModel;
     this.#handleRoutePointChange = onRoutePointChange;
     this.#handleDestroy = onDestroy;
+    this.#handleReset = onReset;
   }
 
   init() {
@@ -43,6 +45,7 @@ export default class NewRoutePointPresenter {
     }
 
     this.#handleDestroy();
+    this.#handleReset();
 
     remove(this.#editRoutePointComponent);
     this.#editRoutePointComponent = null;

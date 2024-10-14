@@ -28,7 +28,7 @@ const createRoutePointTemplate = (routePoint, offers, destination)=> {
                   <p class="event__time">
                     <time class="event__start-time" datetime="${dateFrom}">${humanizeRoutePointDate(dateFrom, TIME_FORMAT)}</time>
                     &mdash;
-                    <time class="event__end-time" datetime="${dateTo}">${humanizeRoutePointDate(dateFrom, TIME_FORMAT)}</time>
+                    <time class="event__end-time" datetime="${dateTo}">${humanizeRoutePointDate(dateTo, TIME_FORMAT)}</time>
                   </p>
                   <p class="event__duration">${calculateDiffTime(dateFrom,dateTo)}</p>
                 </div>

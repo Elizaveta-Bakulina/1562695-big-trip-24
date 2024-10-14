@@ -74,7 +74,7 @@ const createPointEditFormTemplate = (state, allDestinations) => {
 
   </section>` : '';
 
-  return `(
+  return `(<li class="trip-events__item">
               <form class="event event--edit" action="#" method="post">
                 <header class="event__header">
                   <div class="event__type-wrapper">
@@ -128,7 +128,7 @@ const createPointEditFormTemplate = (state, allDestinations) => {
                   ${createSectionOffers}
                   ${createSecionDestination}
                 </section>
-              </form>
+              </form></li>
   )`;
 };
 

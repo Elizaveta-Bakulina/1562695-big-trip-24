@@ -18,7 +18,7 @@ const createTripInfoTemplate = (destinations, dates, cost) => {
     } else if (destinations.length === 1) {
       return `<h1 class="trip-info__title">${destinations[0]}</h1>`;
     } else if (destinations.length < 3) {
-      return `<h1 class="trip-info__title">${destinations[0]} &mdash; ... &mdash; ${destinations[1]}</h1>`;
+      return `<h1 class="trip-info__title">${destinations[0]} &mdash; &mdash; ${destinations[1]}</h1>`;
     } else if (destinations.length === 3) {
       return `<h1 class="trip-info__title">${destinations[0]} &mdash; ${destinations[1]} &mdash; ${destinations[2]}</h1>`;
     }

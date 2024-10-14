@@ -6,7 +6,6 @@ const POINT_COUNT = 3;
 const MAX_COUNT_DESTINATIONS = 3;
 const DEFAULT_TYPE = 'flight';
 const BlankPoint = {
-  // id: 0,
   type: DEFAULT_TYPE,
   basePrice: 0,
   destination: null,

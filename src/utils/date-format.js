@@ -20,6 +20,10 @@ function calculateDiffTime(routePointDateStart, routePointDateEnd) {
       const monthsInMil = dayjs.duration($d.months, 'month');
       $d.days += dayjs.duration(monthsInMil.$ms).asDays();
     }
+    if ($d.years > 0) {
+      const yearsInMilliseconds = dayjs.duration($d.years, 'year');
+      $d.days += dayjs.duration(yearsInMilliseconds.$ms).asDays();
+    }
     if ($d.days > 0) {
       return durationInUnits.format('DD[D] HH[H] mm[M]');
     }
